@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Övning 1 - Container Queries</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-container {
+            outline: 2px solid green;
+            width: 300px;
+            /* width: 600px;             */
+            container: cardcontainer /  inline-size;
+        }
+
+        @container cardcontainer (inline-size < 400px) {
+            .card {
+                background-color: lightblue;
+                font-size: 14px;
+            }
+        }
+
+        @container cardcontainer (inline-size >= 400px) {
+            .card {
+                background-color: lightgreen;
+                font-size: 18px;
+            }
+        }        
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card">Detta är ett kort.</div>
+    </div>
+</body>
+
+</html>
